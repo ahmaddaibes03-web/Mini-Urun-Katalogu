@@ -1,32 +1,111 @@
-# 02-Mini-Urun-Katalogu — Expo SDK 58
+# Mini Ürün Kataloğu
 
-React Native + Expo Router + JavaScript (JSX).
+## Proje Hakkında
 
-## Çalıştırma
+Bu proje, Mobil Programlama dersi kapsamında React Native ve Expo Router kullanılarak geliştirilmiş bir mobil ürün kataloğu uygulamasıdır.
 
-Node.js 22.13+ gerekir.
+Uygulamanın amacı, bir teknoloji mağazasındaki ürünleri listelemek, ürün bilgilerini görüntülemek ve seçilen ürünün detaylarına ulaşabilmektir.
+
+## Kullanılan Teknolojiler
+
+- React Native
+- Expo SDK 58
+- Expo Router
+- JavaScript (JSX)
+
+## Uygulama Özellikleri
+
+- En az 5 ürünün listelenmesi
+- ProductCard bileşeni ile ürün kartlarının oluşturulması
+- Ürün adı, fiyat, kategori ve stok bilgilerinin görüntülenmesi
+- Ürün kartına basıldığında detay ekranına geçiş
+- Seçilen ürünün ID'sine göre doğru bilgilerin gösterilmesi
+- Ürün açıklamasının detay ekranında görüntülenmesi
+- Stok durumunun kontrol edilmesi
+  - Stok miktarı 0 ise: Stokta yok
+  - Stok miktarı 0'dan büyükse: Stokta
+- Detay ekranından ürün listesine geri dönüş
+- Geçersiz ürün ID'si için hata mesajı
+
+## Kullanılan React Native Bileşenleri
+
+- View
+- Text
+- Pressable
+- FlatList
+- StyleSheet
+
+## Navigasyon
+
+Uygulamada Expo Router kullanılmıştır.
+
+- `/` : Ürün Listesi
+- `/urun/[id]` : Ürün Detay Sayfası
+
+Ürün kartına basıldığında `router.push` kullanılarak ilgili ürünün detay ekranına geçilir.
+
+Dinamik rota parametresi `useLocalSearchParams` ile alınır.
+
+## Veri Yapısı
+
+Ürün bilgileri `data/products.js` dosyasında tutulmaktadır.
+
+Her ürün aşağıdaki bilgileri içerir:
+
+- id
+- name
+- price
+- category
+- stock
+- description
+
+Veriler uygulama içerisinde örnek olarak tanımlanmıştır. Harici bir veritabanı kullanılmamıştır.
+
+## Tasarım Tercihleri
+
+Uygulamada sade ve anlaşılır bir tasarım tercih edilmiştir.
+
+Ürün bilgileri kartlar içerisinde gösterilerek kullanıcıların ürünleri kolayca karşılaştırabilmesi amaçlanmıştır.
+
+Stok durumlarının ayrı metinlerle gösterilmesi, ürünün mevcut olup olmadığının kolayca anlaşılmasını sağlar.
+
+## Projenin Çalıştırılması
+
+Öncelikle gerekli paketleri yükleyin:
 
 ```bash
 npm install
-npx expo install --fix
-npx expo-doctor
-npx expo start -c
 ```
 
-Bu proje Expo SDK 58 için ayrı olarak düzenlenmiştir. SDK 54 node_modules ve package-lock.json dosyalarını bu klasöre taşımayın.
-
-Doktor föyündeki ekranları, tekrar kullanılabilir bileşenleri ve dinamik rotaları içerir. Test ekran görüntülerini kendi cihazınızda alın; TEST_RAPORU.md dosyasını gerçek sonuçlarla doldurun.
-
-## GitHub
-GitHub'da boş bir depo oluşturun (README / .gitignore eklemeyin), sonra:
+Ardından uygulamayı başlatın:
 
 ```bash
-git init
-git add .
-git commit -m "Expo SDK 58 uygulamasi"
-git branch -M main
-git remote add origin https://github.com/ahmaddaibes03-web/02-Mini-Urun-Katalogu.git
-git push -u origin main
+npx expo start
 ```
 
-Expo SDK 58 ve React 19.3.0 sürümleri kullanılır.
+Uygulama, Expo Go üzerinden QR kod okutularak çalıştırılabilir.
+
+## Testler
+
+Uygulama çalıştırıldıktan sonra aşağıdaki işlemler kontrol edilmelidir:
+
+- Ürün listesinin doğru görüntülenmesi
+- En az 5 ürünün listelenmesi
+- Ürün detay sayfasına geçiş
+- Seçilen ürünün doğru bilgilerinin gösterilmesi
+- Stok miktarı 0 olan ürün için "Stokta yok" yazısının görüntülenmesi
+- Farklı bir ürünün detaylarının açılması
+- Geri butonunun çalışması
+- Geçersiz ürün ID'si için hata mesajı gösterilmesi
+
+## Ekran Görüntüleri
+
+Uygulama test edildikten sonra ekran görüntüleri bu bölüme eklenecektir.
+
+## Yapay Zekâ Kullanımı
+
+Bu projede yapay zekâdan React Native bileşenlerinin kullanımı, ProductCard yapısı ve Expo Router ile ekranlar arasında geçiş yapılması konularında destek alınmıştır. Ayrıca kodların düzenlenmesi ve karşılaşılan hataların anlaşılması konusunda yardım alınmıştır.
+
+## Geliştirme Önerisi
+
+Gelecekte uygulamaya ürün arama, kategoriye göre filtreleme ve yeni ürün ekleme özellikleri eklenebilir.
