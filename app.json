@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Mini Ürün Kataloğu",
+    "slug": "mini-urun-katalogu",
+    "scheme": "minikatalog58",
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}
